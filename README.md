@@ -17,3 +17,5 @@ Through the sample issuer application, credential Issuance happens in the follow
     - Credential_Valid_From,
     - Credential_Valid_Till
 4. Issue Credential
+
+![Issue Credential Flow](diagrams/cred_iss_seq.jpg)
