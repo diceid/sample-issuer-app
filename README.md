@@ -10,7 +10,7 @@ Through the sample issuer application, credential Issuance happens in the follow
      -	It takes user email id as input and sends invitation  to this email address as QR code. The API used for this is: 
      -	https://futurebankapi.wiprobc.com/swagger-ui.html#connections-controller/, POST /submit
 2.	Holder should scan this   QR code to establish connection with Issuer
-3.	Create schema. For schema creation API used is:  by default schema is created with the following attributes:
+3.	Create schema. For schema creation API used is: https://futurebankapi.wiprobc.com/swagger-ui.html#/schema-controller, POST /api/schema/createSchema. By default schema is created with the following attributes:
     - Name,
     - Email,
     - SPOC_Email
