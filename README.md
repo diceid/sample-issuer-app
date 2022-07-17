@@ -16,6 +16,9 @@ Through the sample issuer application, credential Issuance happens in the follow
     - SPOC_Email
     - Credential_Valid_From,
     - Credential_Valid_Till
-4. Issue Credential
-
+4. Issue Credential: This happens in 3 steps
+   - Issuers sends credential offer to Holder. The REST API used for credential offer is: https://futurebankapi.wiprobc.com/swagger-ui.html#/credentials-controller/, POST
+/api/credentialoffer
+   - Once Holder receives the offer, holder accepts and sends credential request 
+   - After receiving credential request from holder, credential is issued with API: https://futurebankapi.wiprobc.com/swagger-ui.html#/credentials-controller/, POST /api/issue-credential/records/{credential_exchange_id}/issue
 ![Issue Credential Flow](diagrams/cred_iss_seq.jpg)
