@@ -21,4 +21,5 @@ Through the sample issuer application, credential Issuance happens in the follow
 /api/credentialoffer
    - Once Holder receives the offer, holder accepts and sends credential request 
    - After receiving credential request from holder, credential is issued with API: https://futurebankapi.wiprobc.com/swagger-ui.html#/credentials-controller/, POST /api/issue-credential/records/{credential_exchange_id}/issue. One can get Credential exchange id from credential-offer API output 
+<br>
 ![Issue Credential Flow](diagrams/cred_iss_seq.jpg)
