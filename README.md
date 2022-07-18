@@ -7,8 +7,8 @@ The sample Issuer application demonstrates the capability of Wipro’s Issuer. W
 Issuer is available at: https://futurebankapi.wiprobc.com/swagger-ui.html 
 
 Holder should have Identity Wallet application, DIWallet installed on their mobile phone. The wallet is available on both Android and iOS platforms.
-On iOS, it be can downloaded from: https://apps.apple.com/in/app/dice-id/id1624858853
-On Android, the link is: DIWallet - Apps on Google Play
+- On iOS, it be can downloaded from: https://apps.apple.com/in/app/dice-id/id1624858853
+- On Android, the link is: DIWallet - Apps on Google Play
 
 Through the sample issuer application, credential Issuance happens in the following steps:
 1.	Create connection invitation
