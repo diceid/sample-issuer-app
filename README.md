@@ -10,7 +10,7 @@ Holder should have Identity Wallet application, DIWallet installed on their mobi
 - On iOS, it be can downloaded from: https://apps.apple.com/in/app/dice-id/id1624858853
 - On Android, the link is: [DIWallet - Apps on Google Play](https://play.google.com/store/apps/details?id=com.diwallet1)
 
-Through the sample issuer application, credential Issuance happens in the following steps:
+Through the sample issuer application, sample_issuer.py, credential Issuance happens in the following steps. The application can be started with python sample_issuer.py
 1.	Create connection invitation
      -	It takes user email id as input and sends invitation  to this email address as QR code. The API used for this is: 
      -	https://futurebankapi.wiprobc.com/swagger-ui.html#connections-controller/, POST /submit
