@@ -1,14 +1,17 @@
-# sample-issuer-app
-The sample Issuer application demonstrates the capability of Wipro’s Issuer. Wipro’s Issuer can be used to issue credential. Different stakeholders involved are:
+# Sample Issuer Application
+
+The purpose of this application is to provide a quick-start on how to use DICE APIs for creating and issuing Verifiable Credentials
+
+The sample Issuer application demonstrates the capability of Issuer APIs available on DICE platform, which can be used to issue credential. Different stakeholders involved are:
 - Identity Wallet 
 - Issuer platform and
 - Sample Issuer application
 
 Issuer is available at: https://futurebankapi.wiprobc.com/swagger-ui.html 
 
-Holder should have Identity Wallet application, DIWallet installed on their mobile phone. The wallet is available on both Android and iOS platforms.
-- On iOS, it be can downloaded from: https://apps.apple.com/in/app/dice-id/id1624858853
-- On Android, the link is: [DIWallet - Apps on Google Play](https://play.google.com/store/apps/details?id=com.diwallet1)
+Holder should have Identity Wallet application, DICE identity wallet installed on their mobile phone. The wallet is available on both Android and iOS platforms.
+- On iOS, it be can downloaded from: [DICE ID - Apple playstore](https://apps.apple.com/in/app/dice-id/id1624858853)
+- On Android, the link is: [DICE ID - Apps on Google Play](https://play.google.com/store/apps/details?id=com.diwallet1)
 
 Through the sample issuer application, sample_issuer.py, credential Issuance happens in the following steps. The application can be started with python sample_issuer.py
 1.	Create connection invitation
