@@ -35,9 +35,9 @@ Through the sample issuer application, sample_issuer.py, credential Issuance hap
 3.	Create schema. For schema creation API used is: https://futurebank.wiprobc.com/swagger-ui.html#/schema-controller, POST /api/schema/createSchema. By default schema is created with the following attributes:
     - Name,
     - Email,
-    - SPOC_Email
-    - Credential_Valid_From,
-    - Credential_Valid_Till
+    - PAN
+    - Postal Address
+    
  This will create schema as well as credential definition. One can modify sample_issuer.py to customize this schema as per the requirements.
    
 4. Issue Credential: This happens in 3 steps
