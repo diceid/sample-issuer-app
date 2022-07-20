@@ -20,7 +20,7 @@ Holder should have Identity Wallet application, DICE identity wallet installed o
 Python can be installed on your ubuntu machine as follows:
 - apt-get update
 - apt-get install python
-- 
+
 ## How to run
 The application can be started with the command
 - python sample_issuer.py
