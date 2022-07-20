@@ -9,6 +9,7 @@ Different stakeholders involved are:
 - Identity Wallet 
 - Issuer platform and
 - Sample Issuer application
+- Python 
 
 Issuer is available at: https://futurebank.wiprobc.com/swagger-ui.html 
 
@@ -16,7 +17,10 @@ Holder should have Identity Wallet application, DICE identity wallet installed o
 - On iOS, it be can downloaded from: [DICE ID - Apple playstore](https://apps.apple.com/in/app/dice-id/id1624858853)
 - On Android, the link is: [DICE ID - Apps on Google Play](https://play.google.com/store/apps/details?id=com.diwallet1)
 
-
+Python can be installed on your ubuntu machine as follows:
+- apt-get update
+- apt-get install python
+- 
 ## How to run
 The application can be started with the command
 - python sample_issuer.py
