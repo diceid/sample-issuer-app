@@ -28,11 +28,11 @@ The application can be started with the command
 ## Credential Issuance
 Through the sample issuer application, sample_issuer.py, credential Issuance happens in the following steps. 
 1.	Create connection invitation
-     -	It takes user email id as input and sends invitation  link to this email address. The click on this link will take you to the QR code page. The API used for creating and sending this connection invitation is: 
-     -	https://futurebank.wiprobc.com/swagger-ui.html#connections-controller/, POST /submit
-     Example of connection link: https://futurebank.wiprobc.com/verify/412fc346-505a-4ed3-a121-19075db90784 where 412fc346-505a-4ed3-a121-19075db90784 is the connection id. 
-2.	Holder should scan this QR code to establish connection with the Issuer
-3.	Create schema. For schema creation API used is: https://futurebank.wiprobc.com/swagger-ui.html#/schema-controller, POST /api/schema/createSchema. By default schema is created with the following attributes:
+     -	It takes user email id as input and sends invitation link to this email address. The click on this link will take you to the QR code page. The API used for creating and sending this connection invitation is: 
+     -	https://futureapi.wiprobc.com/swagger-ui.html#connections-controller/, POST /submit
+     Example of connection link: https://futureapi.wiprobc.com/verify/412fc346-505a-4ed3-a121-19075db90784 where 412fc346-505a-4ed3-a121-19075db90784 is the connection id. 
+2.	Holder should scan the QR code to establish connection with the Issuer
+3.	Create schema. For schema creation A: https://futureapi.wiprobc.com/swagger-ui.html#/schema-controller, POST /api/schema/createSchema. By default schema is created with the following attributes:
     - Name,
     - Email,
     - PAN
@@ -44,7 +44,7 @@ Through the sample issuer application, sample_issuer.py, credential Issuance hap
    - Issuers sends credential offer to Holder. The REST API used for credential offer is: https://futurebank.wiprobc.com/swagger-ui.html#/credentials-controller/, POST
 /api/credentialoffer. In the sample issuer application, the schema attribute values are taken as input. It also takes connection id as input which can be obtained from invitation URL.   
    - Once Holder receives the offer, holder accepts and sends credential request 
-   - After receiving credential request from holder, credential is issued with API: https://futurebank.wiprobc.com/swagger-ui.html#/credentials-controller/, POST /api/issue-credential/records/{credential_exchange_id}/issue. One can get Credential exchange id from credential-offer API output <br>
+   - After receiving credential request from holder, DICE Issuer paltform will automatically issue credential with API: https://futurebank.wiprobc.com/swagger-ui.html#/credentials-controller/, POST /api/issue-credential/records/{credential_exchange_id}/issue. Credential exchange id is obtained from Credential-offer API output 
  
  ## Flow Diagram
    
