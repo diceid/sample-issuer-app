@@ -34,17 +34,17 @@ Through the sample issuer application, sample_issuer.py, credential Issuance hap
 2.	Holder should scan the QR code to establish connection with the Issuer
 3.	Create schema. For schema creation A: https://futureapi.wiprobc.com/swagger-ui.html#/schema-controller, POST /api/schema/createSchema. By default schema is created with the following attributes:
     - Name,
-    - Email,
+    - Age,
     - PAN
     - Postal Address
-    
- This will create schema as well as credential definition. One can modify sample_issuer.py to customize this schema as per the requirements.
+
+These attributes were selected as one can use these attribytes for KYC (Know Your Customer) usecases. This API will create schema as well as credential definition. One can modify sample_issuer.py to customize this schema as per the requirements.
    
 4. Issue Credential: This happens in 3 steps
-   - Issuers sends credential offer to Holder. The REST API used for credential offer is: https://futurebank.wiprobc.com/swagger-ui.html#/credentials-controller/, POST
+   - Issuers sends credential offer to Holder. The REST API used for credential offer is: https://futureapi.wiprobc.com/swagger-ui.html#/credentials-controller/, POST
 /api/credentialoffer. In the sample issuer application, the schema attribute values are taken as input. It also takes connection id as input which can be obtained from invitation URL.   
    - Once Holder receives the offer, holder accepts and sends credential request 
-   - After receiving credential request from holder, DICE Issuer paltform will automatically issue credential with API: https://futurebank.wiprobc.com/swagger-ui.html#/credentials-controller/, POST /api/issue-credential/records/{credential_exchange_id}/issue. Credential exchange id is obtained from Credential-offer API output 
+   - After receiving credential request from holder, DICE Issuer paltform will automatically issue credential with API: https://futureapi.wiprobc.com/swagger-ui.html#/credentials-controller/, POST /api/issue-credential/records/{credential_exchange_id}/issue. Credential exchange id is obtained from Credential-offer API output 
  
  ## Flow Diagram
    
