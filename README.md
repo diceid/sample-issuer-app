@@ -2,7 +2,7 @@
 
 The purpose of this application is to provide a quick-start on how to use DICE APIs for creating and issuing Verifiable Credentials
 
-The sample Issuer application demonstrates the capability of Issuer APIs available on DICE platform, which can be used to issue credential.
+
 
 ## Pre-requisite
 Different stakeholders involved are:
@@ -11,7 +11,7 @@ Different stakeholders involved are:
 - Sample Issuer application
 - Python 
 
-Issuer is available at: https://futurebank.wiprobc.com/swagger-ui.html 
+Issuer is available at: https://futureapi.wiprobc.com/swagger-ui.html 
 
 Holder should have Identity Wallet application, DICE identity wallet installed on their mobile phone. The wallet is available on both Android and iOS platforms.
 - On iOS, it be can downloaded from: [DICE ID - Apple playstore](https://apps.apple.com/in/app/dice-id/id1624858853)
