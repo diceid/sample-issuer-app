@@ -10,6 +10,7 @@ Different stakeholders involved are:
 - Issuer platform and
 - Sample Issuer application
 - Python 
+- Python package aiohttp
 
 Issuer is available at: https://futureapi.wiprobc.com/swagger-ui.html 
 
@@ -19,8 +20,12 @@ Holder should have Identity Wallet application, DICE identity wallet installed o
 
 Python can be installed on your ubuntu machine as follows:
 - apt-get update
-- apt-get install python
+- apt-get install python3
 
+Python package aiohttp can be installed with:
+ - pip3 install aiohttp~=3.8.1
+ 
+ 
 ## How to run
 The application can be started with the command
 - python sample_issuer.py
