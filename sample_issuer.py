@@ -179,8 +179,7 @@ async def send_credential(issuer_url, auth_code, conn_id, schema):
 
 async def main():
     conn_id=None
-    #issuer_url = "https://futurebankapi.wiprobc.com"
-    issuer_url = "https://futureapi.wiprobc.com"
+    issuer_url = "https://futureapi.diceid.com"
     auth_code = os.getenv("AUTHORIZATION_CODE",None)
     if(auth_code is None):
         auth_code = input("Input Authorization Code: ")
