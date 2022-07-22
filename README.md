@@ -47,7 +47,7 @@ Through the sample issuer application, sample_issuer.py, credential Issuance hap
       - Postal Address
 
       These attributes were selected as one can use these attribytes for eKYC (Know Your Customer) usecases. This API will create schema as well as credential definition. One can modify sample_issuer.py to customize this schema as per the requirements.
-   - 2b. Use existing Schema: If you have already created a schema or required schema exists with DICE issuer platform, then one can use this option. To view all the existing schema's use API:  https://futureapi.diceid.com/swagger-ui.html#/, POST /api/schema getAllSchema
+   - 2b. Use existing Schema: If you have already created a schema or required schema exists with DICE issuer platform, then one can use this option. To view all the existing schema's, use API:  https://futureapi.diceid.com/swagger-ui.html#/, POST /api/schema getAllSchema
    
 3. Issue Credential: This happens in 3 steps
    - Issuers sends credential offer to Holder. The REST API used for credential offer is: https://futureapi.wiprobc.com/swagger-ui.html#/credentials-controller/, POST
