@@ -11,6 +11,9 @@ from aiohttp import (
 import time
 import os
 
+
+schema_attributes = {}
+
 async def check_existing_connection_id(issuer_url, auth_code):
     conn_id = input ("Enter connection id: ")
     path="/api/connection/"
@@ -19,7 +22,7 @@ async def check_existing_connection_id(issuer_url, auth_code):
                 'Authorization': 'Bearer ' + auth_code
                }
 
-    print ("requesr url = ", issuer_url  + path + conn_id)
+    print ("request url = ", issuer_url  + path + conn_id)
     async with ClientSession() as session:
         async with session.request("GET", issuer_url + path + conn_id, headers=headers) as resp:
             if resp.status != 200:
@@ -29,12 +32,16 @@ async def check_existing_connection_id(issuer_url, auth_code):
             conn_resp=await resp.json()
             state=conn_resp["state"]
             print(f"Connection id= {conn_id}, Connection state= {state}\n")
+            if state != "active":
+                raise Exception(
+                    f"Connection is not in active state"
+                )
     return conn_id
 
 async def print_oob_connection_invitation(issuer_url, auth_code):
     conn_id=None
     path="/submit"
-    emailId=input("Enter your emailId:")
+    emailId=input("Enter your emailId: ")
     print("Creating connection invitation...\n")
     params = {
     			"emailId": emailId
@@ -52,7 +59,6 @@ async def print_oob_connection_invitation(issuer_url, auth_code):
             idx=conn_info.find("id=")+4
             conn_id=conn_info[idx:idx+36]
             
-            print(f"Connection Invitation Created: {conn_id} !!!!!!\n")
             print("Email is sent with invitation link, please click on the link and scan the QR code with DICE wallet\n")
 
     return conn_id     
@@ -75,8 +81,9 @@ async def use_existing_schema(issuer_url, auth_code):
                 )
             conn_resp=await resp.json()
             seqno=conn_resp["seq_num"]
-            print(f"Schema id= {schema_id}, Schema SeqNo= {seqno}\n")
-    return schema_id,seqno
+            schema_attributes=conn_resp["attributes"]
+            print(f"Schema:\n{schema_id}, Schema SeqNo= {seqno}, Schema attributes= {schema_attributes}\n")
+    return schema_id,seqno,schema_attributes
         
 
 
@@ -93,7 +100,7 @@ async def create_schema(issuer_url, auth_code):
                                 "PAN":"text",
                                 "PostalAddress":"text"
                             },
-                "schema_name": "name" + str(randint(0,100)),
+                "schema_name": "schema_name" + str(randint(0,100)),
                 "schema_version": "1.0"                                
     	    }
    
@@ -117,9 +124,10 @@ async def create_schema(issuer_url, auth_code):
                 )
             conn_resp=await resp.json()
             seqno=conn_resp["seq_num"]
-            print(f"Schema_Info: id= {schema_id} , SeqNo= {seqno}\n")
+            schema_attributes=conn_resp["attributes"]
+            print(f"Schema created:\n{schema_id}, Schema SeqNo= {seqno}, Schema attributes= {schema_attributes}\n")
         
-    return schema_id,seqno
+    return schema_id,seqno,schema_attributes
 
 
 async def send_credential(issuer_url, auth_code, conn_id, schema):
@@ -128,10 +136,19 @@ async def send_credential(issuer_url, auth_code, conn_id, schema):
     contents=schema[0].split(":")
     cred_def_id=contents[0]+":3:CL:"+schema[1]+":default"
     print("cred_def_id:",cred_def_id)
-    name=input("Enter Name: ")
-    age=input("Enter Age: ")
-    pan=input("Enter PAN: ")
-    pa=input("Enter Postal Address: ")
+    data=schema[2]
+    attributes=[]
+    attributes=[value for attribute in data for value in attribute.values()]
+    del attributes[1::2]
+    print("schema attributes: ",attributes)
+    dictionary=dict()
+    res=[]  
+    for i in attributes:
+        x=input("Enter your {} : ".format(i))
+        dictionary["name"]=i
+        dictionary["value"]=x
+        res.append(dictionary.copy())
+    
     conn_id=input("Enter connection id: ")
     valid_from = int(time.time())
     valid_to = valid_from + 31536000
@@ -142,27 +159,9 @@ async def send_credential(issuer_url, auth_code, conn_id, schema):
                     "cred_def_id": cred_def_id,
                     "credential_preview": {
                         "@type": "string",
-                        "attributes": [
-                        {
-                            "name": "Name",
-                            "value": name
-                        },
-                        {
-                            "name": "Age",
-                            "value": age
-                        },
-                        {
-                            "name": "PAN",
-                            "value": pan
-                        },
-                        {
-                            "name": "PostalAddress",
-                            "value": pa
-                        }
-                        ]
+                        "attributes": res
                     }
                 }
-   
     headers = {
                 'Authorization': 'Bearer ' + auth_code
             } 
@@ -172,13 +171,12 @@ async def send_credential(issuer_url, auth_code, conn_id, schema):
                 raise Exception(
                     f"Error response code {resp}"
                 )
-            schema_info = await resp.json()
-            print(f"Schema_Info: {schema_info}\n")
   
 
 
 async def main():
     conn_id=None
+    #issuer_url = "https://futurebankapi.diceid.com"
     issuer_url = "https://futureapi.diceid.com"
     auth_code = os.getenv("AUTHORIZATION_CODE",None)
     if(auth_code is None):
