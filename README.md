@@ -33,12 +33,12 @@ The application can be started with the command
 ## Credential Issuance
 Through the sample issuer application, sample_issuer.py, credential Issuance happens in the following steps.
 1. Create Connection
-1a.	Create New Connection Invitation
-     -	It takes user email id as input and sends invitation link to this email address. The click on this link will take you to the QR code page. The API used for creating and sending this connection invitation is: 
+   - 1a.	Create New Connection Invitation
+     -	It takes user email id as input and sends invitation link to this email address. The click on this link will take you to the QR code page. Holder should scan the QR code to establish connection with the Issuer. The API used for creating and sending this connection invitation is: 
      -	https://futureapi.wiprobc.com/swagger-ui.html#connections-controller/, POST /submit
      Example of connection link: https://futureapi.wiprobc.com/verify/412fc346-505a-4ed3-a121-19075db90784 where 412fc346-505a-4ed3-a121-19075db90784 is the connection id. 
-1b. 
-2.	Holder should scan the QR code to establish connection with the Issuer
+    - 1b. Use existing connection: Use this option, if you have already established connection with DICE Issuer platform 
+2.	
 3.	Create schema. For schema creation A: https://futureapi.wiprobc.com/swagger-ui.html#/schema-controller, POST /api/schema/createSchema. By default schema is created with the following attributes:
     - Name,
     - Age,
