@@ -37,15 +37,17 @@ Through the sample issuer application, sample_issuer.py, credential Issuance hap
      -	It takes user email id as input and sends invitation link to this email address. The click on this link will take you to the QR code page. Holder should scan the QR code to establish connection with the Issuer. The API used for creating and sending this connection invitation is: 
      -	https://futureapi.wiprobc.com/swagger-ui.html#connections-controller/, POST /submit
      Example of connection link: https://futureapi.wiprobc.com/verify/412fc346-505a-4ed3-a121-19075db90784 where 412fc346-505a-4ed3-a121-19075db90784 is the connection id. 
-    - 1b. Use existing connection: Use this option, if you have already established connection with DICE Issuer platform 
-2.	
-3.	Create schema. For schema creation A: https://futureapi.wiprobc.com/swagger-ui.html#/schema-controller, POST /api/schema/createSchema. By default schema is created with the following attributes:
+    - 1b. Use Existing Connection: Use this option, if you have already established connection with DICE Issuer platform 
+	
+2.	Create schema. 
+   - 2a. Create New Schema: Use this option for new schema creation. The API used for this is: https://futureapi.wiprobc.com/swagger-ui.html#/schema-controller, POST /api/schema/createSchema. By default schema is created with the following attributes:
     - Name,
     - Age,
     - PAN
     - Postal Address
 
-These attributes were selected as one can use these attribytes for KYC (Know Your Customer) usecases. This API will create schema as well as credential definition. One can modify sample_issuer.py to customize this schema as per the requirements.
+These attributes were selected as one can use these attribytes for eKYC (Know Your Customer) usecases. This API will create schema as well as credential definition. One can modify sample_issuer.py to customize this schema as per the requirements.
+   - 2b. Use existing Schema: If you have already created a schema or required schema exists with DICE issuer platform, then one can use this option. To view all the existing schema's use API:  https://futureapi.diceid.com/swagger-ui.html#/, POST /api/schema getAllSchema
    
 4. Issue Credential: This happens in 3 steps
    - Issuers sends credential offer to Holder. The REST API used for credential offer is: https://futureapi.wiprobc.com/swagger-ui.html#/credentials-controller/, POST
