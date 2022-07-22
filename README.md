@@ -36,7 +36,7 @@ Through the sample issuer application, sample_issuer.py, credential Issuance hap
    - 1a. Create New Connection Invitation
      -	It takes user email id as input and sends invitation link to this email address. The click on this link will take you to the QR code page. Holder should scan the QR code to establish connection with the Issuer. The API used for creating and sending this connection invitation is: 
      -	https://futureapi.wiprobc.com/swagger-ui.html#connections-controller/, POST /submit
-     Example of connection link: https://futureapi.***.***/verify/412fc346-505a-4ed3-a121-19075db90784 where ** 412fc346-505a-4ed3-a121-19075db90784 ** is the connection id. 
+     Example of connection link: https://futureapi.***.***/verify/412fc346-505a-4ed3-a121-19075db90784 where **412fc346-505a-4ed3-a121-19075db90784** is the connection id. 
     - 1b. Use Existing Connection: Use this option, if you have already established connection with DICE Issuer platform 
 	
 2. Create schema
