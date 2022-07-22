@@ -9,7 +9,7 @@ Different stakeholders involved are:
 - Identity Wallet 
 - Issuer platform and
 - Sample Issuer application
-- Python 
+- Python version >=3
 - Python package aiohttp
 
 Issuer is available at: https://futureapi.wiprobc.com/swagger-ui.html 
