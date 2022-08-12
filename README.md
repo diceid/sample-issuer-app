@@ -18,6 +18,9 @@ Holder should have Identity Wallet application, DICE identity wallet installed o
 - On iOS, it be can downloaded from: [DICE ID - Apple playstore](https://apps.apple.com/in/app/dice-id/id1624858853)
 - On Android, the link is: [DICE ID - Apps on Google Play](https://play.google.com/store/apps/details?id=com.diwallet1)
 
+<b> Important </b> --
+After installing the wallet app make sure make sure "DICE ID Test Network" or "Wipro Identity Network" is selected in the Network option of the Settings.
+
 Python can be installed on your ubuntu machine as follows:
 - apt-get update
 - apt-get install python3
