@@ -38,12 +38,12 @@ Through the sample issuer application, sample_issuer.py, credential Issuance hap
 1. Create Connection
    - 1a. Create New Connection Invitation
      -	It takes user email id as input and sends invitation link to this email address. The click on this link will take you to the QR code page. Holder should scan the QR code to establish connection with the Issuer. The API used for creating and sending this connection invitation is: 
-     -	POST https://futurebank-issuer-api.diceid.com/v1/connection/invitation (refer https://dev.diceid.com/developer-docs/api-reference/connections-management#connection-invitation-api)
-     Example of connection link: https://futurebank-issuer-api.diceid.com/verify/412fc346-505a-4ed3-a121-19075db90784 where **412fc346-505a-4ed3-a121-19075db90784** is the connection id. 
+     -	POST https://dice-uat-issuer-api.diceid.com/v1/connection/invitation (refer https://dev.diceid.com/developer-docs/api-reference/connections-management#connection-invitation-api)
+     Example of connection link: https:// dice-uat-issuer-api.diceid.com/verify/412fc346-505a-4ed3-a121-19075db90784 where **412fc346-505a-4ed3-a121-19075db90784** is the connection id. 
     - 1b. Use Existing Connection: Use this option, if you have already established connection with DICE Issuer platform 
 	
 2. Create schema
-   - 2a. Create New Schema: Use this option for new schema creation. The API used for this is: POST https://futurebank-issuer-api.diceid.com/v1/cred/schema (refer https://dev.diceid.com/developer-docs/api-reference/schema-management#schema-creation-api). By default schema is created with the following attributes:
+   - 2a. Create New Schema: Use this option for new schema creation. The API used for this is: POST https://dice-uat-issuer-api.diceid.com/v1/cred/schema (refer https://dev.diceid.com/developer-docs/api-reference/schema-management#schema-creation-api). By default schema is created with the following attributes:
       - Name,
       - Age,
       - PAN
